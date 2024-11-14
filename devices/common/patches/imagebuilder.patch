@@ -142,7 +142,7 @@
  else
  	$(APK) add --no-scripts $(firstword $(wildcard $(LINUX_DIR)/libc-*.apk $(PACKAGE_DIR)/libc-*.apk))
  	$(APK) add --no-scripts $(firstword $(wildcard $(LINUX_DIR)/kernel-*.apk $(PACKAGE_DIR)/kernel-*.apk))
-@@ -254,6 +284,9 @@ else
+@@ -254,16 +284,19 @@ else
  	)
  endif
  	$(call prepare_rootfs,$(TARGET_DIR),$(USER_FILES),$(DISABLED_SERVICES))
@@ -152,3 +152,15 @@
  
  build_image: FORCE
  	@echo
+ 	@echo Building images...
+ 	rm -rf $(BUILD_DIR)/json_info_files/
+ 	if [ -d "target/linux/feeds/$(BOARD)" ]; then \
+-		$(NO_TRACE_MAKE) -C target/linux/feeds/$(BOARD)/image install TARGET_BUILD=1 IB=1 EXTRA_IMAGE_NAME="$(EXTRA_IMAGE_NAME)" \
++		nice -n 19 $(NO_TRACE_MAKE) -C target/linux/feeds/$(BOARD)/image install TARGET_BUILD=1 IB=1 EXTRA_IMAGE_NAME="$(EXTRA_IMAGE_NAME)" \
+ 			$(if $(USER_PROFILE),PROFILE="$(USER_PROFILE)"); \
+ 	else \
+-		$(NO_TRACE_MAKE) -C target/linux/$(BOARD)/image install TARGET_BUILD=1 IB=1 EXTRA_IMAGE_NAME="$(EXTRA_IMAGE_NAME)" \
++		nice -n 19 $(NO_TRACE_MAKE) -C target/linux/$(BOARD)/image install TARGET_BUILD=1 IB=1 EXTRA_IMAGE_NAME="$(EXTRA_IMAGE_NAME)" \
+ 			$(if $(USER_PROFILE),PROFILE="$(USER_PROFILE)"); \
+ 	fi
+ 
