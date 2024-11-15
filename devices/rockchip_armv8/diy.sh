@@ -17,11 +17,11 @@ wget -N https://github.com/openwrt/openwrt/raw/refs/heads/openwrt-24.10/target/l
 sed -i "/KernelPackage,ptp/d" package/kernel/linux/modules/other.mk
 
 #sed -i -e "s/configs\/dilusense-\(.*-.*_defconfig\)/configs\/\1/" \
-	   -e "s/configs\/sharevdi-\(.*-.*_defconfig\)/configs\/\1/" \
-	   -e "s/configs\/rongpin-\(.*-.*_defconfig\)/configs\/\1/" \
-	   -e "s/configs\/rocktech-\(.*-.*_defconfig\)/configs\/\1/" \
-	   -e "s/configs\/advantech-\(.*-.*_defconfig\)/configs\/\1/" \
-	   package/boot/uboot-rockchip/patches/*
+#	   -e "s/configs\/sharevdi-\(.*-.*_defconfig\)/configs\/\1/" \
+#	   -e "s/configs\/rongpin-\(.*-.*_defconfig\)/configs\/\1/" \
+#	   -e "s/configs\/rocktech-\(.*-.*_defconfig\)/configs\/\1/" \
+#	   -e "s/configs\/advantech-\(.*-.*_defconfig\)/configs\/\1/" \
+#	   package/boot/uboot-rockchip/patches/*
 
 mv -f tmp/r8125 feeds/kiddin9/
 
