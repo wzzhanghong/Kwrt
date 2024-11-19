@@ -14,8 +14,6 @@ wget -N https://github.com/openwrt/openwrt/raw/refs/heads/openwrt-24.10/target/l
 
 wget -N https://github.com/coolsnowwolf/lede/raw/master/include/kernel-6.6 -P include/
 
-wget -N https://github.com/coolsnowwolf/lede/raw/refs/heads/master/package/kernel/mac80211/patches/build/236-fix-genlmsg_multicast_allns-build-error.patch -P package/kernel/mac80211/patches/build/
-
 sed -i "/KernelPackage,ptp/d" package/kernel/linux/modules/other.mk
 
 #sed -i -e "s/configs\/dilusense-\(.*-.*_defconfig\)/configs\/\1/" \
