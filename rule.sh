@@ -62,3 +62,4 @@ DNS_SERVERS=(
   # https://8.8.8.8/dns-query 会被作为默认DNS服务器
   "Default_DNS_Server|https://8.8.8.8/dns-query
   rcode://refused"
+)
